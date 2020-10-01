@@ -4,3 +4,4 @@ FROM mysql:latest
 # Runs the SQL files to create and seed the DB
 ADD ./db/schema/init.sql /docker-entrypoint-initdb.d/01-init.sql
 ADD ./db/seed/seed.sql /docker-entrypoint-initdb.d/02-seed.sql
+# ADD YOUR OWN FILES HERE!
