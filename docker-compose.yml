@@ -13,3 +13,4 @@ services:
             MYSQL_ROOT_PASSWORD: 'supersecretboops123'
         ports:
             - "3306:3306"
+    # ADD YOUR OWN SERVICES HERE!
