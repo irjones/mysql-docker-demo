@@ -15,3 +15,8 @@
 
 ## Troubleshooting
 - if the table creation or seed fails, you'll need to fix whatever part of your script failed and run `docker-compose down --volumes` before you try again.
+
+## Considerations
+- Obviously, these passwords aren't secure and I also put them on a public GitHub. I don't use these, nor do I recommend you use them. DON'T STORE REAL PASSWORDS IN SOURCE CONTROL.
+- Using an `AUTO_INCREMENT` integer is pretty typical for IDs in databases, but they come with the risk of [Insecure Direct Object Reference](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html), which means that without deliberate access controls, you could find your data leaking out to malicious actors. See the linked article for ideas on how to mitigate this.
+- Why `INTEGER UNSIGNED` for IDs? I don't expect negative IDs from an `AUTO_INCREMENT` starting at `1` and it gives me a larger upper limit for free, basically. However, if you plan on creating a vast number of rows, consider using `BIGINT`. If you don't expect to create many, you can use `TINYINT` to save room.
