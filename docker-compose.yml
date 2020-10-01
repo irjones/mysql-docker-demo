@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+    mysql:
+        build:
+            context: .
+            dockerfile: Dockerfile-mysql
+        container_name: mysql
+        environment:
+            MYSQL_DATABASE: 'dogs'
+            MYSQL_USER: 'snootbooper'
+            MYSQL_PASSWORD: 'boopem123'
+            MYSQL_ROOT_PASSWORD: 'supersecretboops123'
+        ports:
+            - "3306:3306"
